@@ -25,10 +25,17 @@ function useEffectHook(){
     useEffect(()=>{
         console.log("Inside useEffect hook");
 
-        return function cleanup(){
+        return()=>{
             console.log("useEffect behaving like componentWillUnmount")
         }
-    })
+    }, [name, surname])
+
+    //  componentWillUnmount,  : cleanup function in useEffect
+    useEffect(()=>{
+        return function cleanup(){
+            console.log("Cleanup function ");
+        }
+    },[])
 
     return(
 
